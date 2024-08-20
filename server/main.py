@@ -2,9 +2,11 @@
 """Simple Flask demo."""
 
 from flask import Flask, jsonify, abort, request
+from flask_cors import CORS
 import os
 
 app = Flask("DEMO")
+CORS(app)
 
 @app.errorhandler(404)
 def not_found(error) -> str:
@@ -26,5 +28,5 @@ def demo():
     return jsonify(data)
 
 
-app.run(host="127.0.0.1", port="5001")
+app.run(host="127.0.0.1", port="3000")
 
